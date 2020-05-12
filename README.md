@@ -2,8 +2,9 @@
 Short and sweet tcp-server written in C. Minimal dependencies, compiles in many environments. Echos bytes received.
 
 # compile
-gcc server.c -o tcp-server
-
+```console
+  gcc server.c -o tcp-server
+```
 # run
 ```console
   ./tcp-server
