@@ -6,11 +6,17 @@ gcc server.c -o tcp-server
 
 # run
 ./tcp-server
+
 socket successfully created.
+
 port bound!
+
 attempting to listen for connection attempts...
+
 server listening...
+
 client connection request accepted!
+
 from client: fuck yes!
 
 echoing 10 bytes... [0]
