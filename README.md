@@ -5,21 +5,17 @@ Short and sweet tcp-server written in C. Minimal dependencies, compiles in many 
 gcc server.c -o tcp-server
 
 # run
-./tcp-server
-
-socket successfully created.
-
-port bound!
-
-attempting to listen for connection attempts...
-
-server listening...
-
-client connection request accepted!
-
-from client: fuck yes!
-
-echoing 10 bytes... [0]
+```console
+  ./tcp-server
+  socket successfully created.
+  port bound!
+  attempting to listen for connection attempts...
+  server listening...
+  client connection request accepted!
+  from client: fuck yes!
+  
+  echoing 10 bytes... [0]
+```
 
 # network / port forwarding
 If it says it's listening, but requests are not getting through
