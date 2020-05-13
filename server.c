@@ -12,9 +12,14 @@
 #include <netdb.h>
 #include <netinet/ip.h>
 
-#define MAX 15 // Default values.
+#define MAX 1500 // Default values.
 #define DEFAULT_PORT 11111
 #define DEFAULT_BACKGLOG_SIZE 5
+
+#define VALID_NUM_ARGS 3
+#define NO_ARGS 1
+
+#define PORT_ARG "-port"
 
 #define ERROR -1
 
@@ -69,7 +74,13 @@ int main(int argc, char *argv[])
     // Assign IP, PORT
     serverAddress.sin_family      = AF_INET;
     serverAddress.sin_addr.s_addr = htonl(INADDR_ANY); // Any incoming address OK.
-    serverAddress.sin_port        = htons(DEFAULT_PORT);
+
+    // Check for use of command line arguments.
+    if((argc > NO_ARGS) && (argc == VALID_NUM_ARGS) && (strncmp(argv[1], PORT_ARG, 5) == 0)){
+        serverAddress.sin_port = htons((unsigned int)atoi(argv[2]));
+    } else {
+        serverAddress.sin_port = htons(DEFAULT_PORT);
+    }
 
     // Connect the client socket to server socket.
     if ( bind(socketFD, (struct sockaddr *) &serverAddress, sizeof(serverAddress)) != 0 ){
